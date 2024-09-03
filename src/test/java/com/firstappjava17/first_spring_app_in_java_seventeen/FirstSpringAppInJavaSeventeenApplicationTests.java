@@ -1,10 +1,10 @@
-package com.myfirstspring.first_spring_app;
+package com.firstappjava17.first_spring_app_in_java_seventeen;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FirstSpringAppApplicationTests {
+class FirstSpringAppInJavaSeventeenApplicationTests {
 
 	@Test
 	void contextLoads() {

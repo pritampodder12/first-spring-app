@@ -6,13 +6,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.2</version>
+		<version>3.3.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.myfirstspring</groupId>
-	<artifactId>first-spring-app</artifactId>
+	<groupId>com.firstappjava17</groupId>
+	<artifactId>first-spring-app-in-java-seventeen</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>first-spring-app</name>
+	<name>first-spring-app-in-java-seventeen</name>
 	<description>Demo project for Spring Boot</description>
 	<url />
 	<licenses>
@@ -28,7 +28,7 @@
 		<url />
 	</scm>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -42,23 +42,19 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<version>3.3.2</version>
+			<version>3.3.3</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-			<version>3.3.2</version>
+			<version>3.3.3</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-
 	</dependencies>
 
 	<build>
