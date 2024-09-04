@@ -1,5 +1,7 @@
 package com.firstappjava17.first_spring_app_in_java_seventeen.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.firstappjava17.first_spring_app_in_java_seventeen.entity.Grade;
 import com.firstappjava17.first_spring_app_in_java_seventeen.service.GradeService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,10 +35,31 @@ public class GradeController {
         return new ResponseEntity<>(gradeService.saveGrade(grade, studentId, courseId), HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
-    public String putMethodName(@PathVariable String id, @RequestBody String entity) {
+    @PutMapping("/student/{studentId}/course/{courseId}")
+    public ResponseEntity<Grade> updateGrade(@RequestBody Grade grade, @PathVariable Long studentId,
+            @PathVariable Long courseId) {
+        return new ResponseEntity<>(gradeService.updateGrade(grade.getScore(), studentId, courseId), HttpStatus.OK);
+    }
 
-        return entity;
+    @DeleteMapping("/student/{studentId}/course/{courseId}")
+    public ResponseEntity<HttpStatus> deleteGrade(@PathVariable Long studentId, @PathVariable Long courseId) {
+        gradeService.deleteGrade(studentId, courseId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/student/{studentId}")
+    public ResponseEntity<List<Grade>> getStudentGrades(@PathVariable Long studentId) {
+        return new ResponseEntity<>(gradeService.getStudentGrades(studentId), HttpStatus.OK);
+    }
+
+    @GetMapping("/course/{courseId}")
+    public ResponseEntity<List<Grade>> getCourseGrades(@PathVariable Long courseId) {
+        return new ResponseEntity<>(gradeService.getCourseGrades(courseId), HttpStatus.OK);
+    }
+
+    @GetMapping("all")
+    public ResponseEntity<List<Grade>> getGrades() {
+        return new ResponseEntity<>(gradeService.getGrades(), HttpStatus.OK);
     }
 
 }

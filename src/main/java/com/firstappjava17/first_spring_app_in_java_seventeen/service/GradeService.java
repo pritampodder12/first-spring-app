@@ -9,7 +9,13 @@ public interface GradeService {
 
     Grade saveGrade(Grade grade, Long studentId, Long CourseId);
 
-    void deleteGrade(Long id);
+    Grade updateGrade(String score, Long studentId, Long courseId);
+
+    void deleteGrade(Long studentId, Long courseId);
+
+    List<Grade> getStudentGrades(Long studentId);
+
+    List<Grade> getCourseGrades(Long courseId);
 
     List<Grade> getGrades();
 }
