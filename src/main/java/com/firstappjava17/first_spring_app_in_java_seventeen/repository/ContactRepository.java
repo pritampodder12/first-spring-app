@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
-import com.firstappjava17.first_spring_app_in_java_seventeen.pojo.Contact;
+
+import com.firstappjava17.first_spring_app_in_java_seventeen.entity.Contact;
 
 @Repository
 public class ContactRepository {

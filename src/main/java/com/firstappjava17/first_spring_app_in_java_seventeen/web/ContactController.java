@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.firstappjava17.first_spring_app_in_java_seventeen.pojo.Contact;
+import com.firstappjava17.first_spring_app_in_java_seventeen.entity.Contact;
 import com.firstappjava17.first_spring_app_in_java_seventeen.service.ContactService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
