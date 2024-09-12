@@ -6,6 +6,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.firstappjava17.first_spring_app_in_java_seventeen.exception.EntityNotFoundException;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,6 +21,10 @@ public class ExceptionHandlerFilter extends OncePerRequestFilter {
         } catch (EntityNotFoundException e) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             response.getWriter().write("Username doesn't exists");
+            response.getWriter().flush();
+        } catch (JWTVerificationException e) {
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            response.getWriter().write("Invalid token!");
             response.getWriter().flush();
         } catch (RuntimeException e) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);

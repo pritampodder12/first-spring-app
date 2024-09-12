@@ -8,6 +8,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import com.firstappjava17.first_spring_app_in_java_seventeen.security.filter.AuthenticationFilter;
 import com.firstappjava17.first_spring_app_in_java_seventeen.security.filter.ExceptionHandlerFilter;
+import com.firstappjava17.first_spring_app_in_java_seventeen.security.filter.JWTAuthorizationFilter;
 import com.firstappjava17.first_spring_app_in_java_seventeen.security.manager.CustomAuthenticationManager;
 
 import lombok.AllArgsConstructor;
@@ -33,9 +34,12 @@ public class SecurityConfig {
                         // console without the need to authenticate. ' ** ' instead of ' * ' because
                         // multiple path levels will follow /h2.
                         .requestMatchers(HttpMethod.POST, SecurityConstants.REGISTER_PATH).permitAll()
+                        // .requestMatchers(HttpMethod.GET, "/v3/api-docs").permitAll()
+                        // .requestMatchers(HttpMethod.GET, "/swagger-ui/index.html").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(new ExceptionHandlerFilter(), AuthenticationFilter.class)
                 .addFilter(authenticateFilter)
+                .addFilterAfter(new JWTAuthorizationFilter(), AuthenticationFilter.class)
                 .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         return http.build();
     }

@@ -3,8 +3,6 @@ package com.firstappjava17.first_spring_app_in_java_seventeen.security.filter;
 import java.io.IOException;
 import java.util.Date;
 
-import javax.xml.crypto.dsig.spec.HMACParameterSpec;
-
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
